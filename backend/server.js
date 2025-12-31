@@ -15,10 +15,16 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // Allows the server to accept JSON data
 
+
+
 // Basic Test Route
 app.get('/', (req, res) => {
   res.send('Digital Vijayawada API is running...');
 });
+
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/shops', require('./routes/shopRoutes'));
+app.use('/api/products', require('./routes/productRoutes'));
 
 const PORT = process.env.PORT || 5000;
 
