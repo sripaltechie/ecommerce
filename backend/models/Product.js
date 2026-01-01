@@ -7,7 +7,11 @@ const productSchema = new mongoose.Schema({
   basePrice: { type: Number, required: true }, // Starting price
   category: String,
   image: String,
-
+  // Inventory Settings
+  trackInventory: { type: Boolean, default: true }, // User setting: to track or not
+  
+  // For products WITH NO VARIANTS
+  stock: { type: Number, default: 0 },
   // FLEXIBLE VARIANTS
   variants: [{
     type: { 
